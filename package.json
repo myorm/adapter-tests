@@ -1,22 +1,21 @@
 {
-    "name": "@myorm/mysql-adapter",
-    "version": "0.4.6",
-    "homepage": "https://github.com/myorm/mysql-adapter",
+    "name": "@myorm/adapter-tests",
+    "version": "0.0.1",
+    "homepage": "https://github.com/myorm/adapter-tests",
     "repository": {
         "type": "git",
-        "url": "https://github.com/myorm/mysql-adapter"
+        "url": "https://github.com/myorm/adapter-tests"
     },
-    "description": "Adapter for MyORM that works for MySQL databases.",
+    "description": "Tests for custom adapters made for MyORM",
     "type": "module",
-    "main": "./dist/cjs/adapter.js",
-    "module": "./dist/esm/adapter.js",
-    "types": "./dist/esm/types/adapter.d.ts",
+    "main": "./dist/cjs/test.js",
+    "module": "./dist/esm/test.js",
+    "types": "./dist/esm/types/test.d.ts",
     "scripts": {
         "clean": "del /S /Q .\\dist",
         "build": "npm run clean && npm run build:esm && npm run build:cjs",
         "build:esm": "tsc -p ./configs/tsconfig.esm.json",
         "build:cjs": "tsc -p ./configs/tsconfig.cjs.json",
-        "test": "node ./lib/tests/test.js",
         "prepack": "npm run build"
     },
     "keywords": [
@@ -31,11 +30,12 @@
         "delete"
     ],
     "author": "Travis Zuleger",
-    "license": "(MIT OR Apache-2.0)",
+    "license": "MIT",
     "dependencies": {
         "@myorm/myorm": "^0.4.3",
         "cli-color": "^2.0.3",
-        "mysql2": "^3.2.4"
+        "mysql2": "^3.2.4",
+        "uuid": "^9.0.0"
     },
     "devDependencies": {
         "@types/node": "^20.3.1",
@@ -48,12 +48,12 @@
     "exports": {
         ".": {
             "import": {
-                "types": "./dist/esm/types/adapter.d.ts",
-                "default": "./dist/esm/adapter.js"
+                "types": "./dist/esm/types/test.d.ts",
+                "default": "./dist/esm/test.js"
             },
             "require": {
-                "types": "./dist/cjs/types/adapter.d.ts",
-                "default": "./dist/cjs/adapter.js"
+                "types": "./dist/cjs/types/test.d.ts",
+                "default": "./dist/cjs/test.js"
             }
         }
     }
